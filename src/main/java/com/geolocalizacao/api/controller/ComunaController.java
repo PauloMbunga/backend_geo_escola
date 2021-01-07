@@ -73,7 +73,13 @@ public class ComunaController{
     }
 
 
-
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public Comuna adicionar(@Valid @RequestBody Comuna comuna) {
+        
+        
+        return cadastroComunaService.salvar(comuna);
+    }
 
 
 
