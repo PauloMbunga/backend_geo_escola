@@ -2,11 +2,13 @@ package com.geolocalizacao.domain.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+//import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+
+import org.hibernate.annotations.GenericGenerator;
 
 //import com.pmbunga.api.domain.ValidationGroups;
 
@@ -14,7 +16,8 @@ import javax.validation.constraints.Size;
 public class Comuna {
 
   @Id
-  @GeneratedValue(strategy=GenerationType.IDENTITY)  
+  @GeneratedValue(generator = "increment")  
+  @GenericGenerator(name="increment", strategy = "increment")
   private  Long id;
   
   @NotBlank

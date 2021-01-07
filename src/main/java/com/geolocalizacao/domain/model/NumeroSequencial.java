@@ -6,12 +6,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.annotations.GenericGenerator;
+
 @Entity
 public class NumeroSequencial {
 
-  @Id
-  @GeneratedValue(strategy=GenerationType.IDENTITY)  
-  private  Long id;
+    @Id
+    @GeneratedValue(generator = "increment")  
+    @GenericGenerator(name="increment", strategy = "increment")
+    private  Long id;
   
   @NotNull
   private Integer numero;

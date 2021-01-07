@@ -11,14 +11,17 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.hibernate.annotations.GenericGenerator;
+
 //import com.pmbunga.api.domain.ValidationGroups;
 
 @Entity
 public class Escola {
 
-  @Id
-  @GeneratedValue(strategy=GenerationType.IDENTITY)  
-  private  Long id;
+    @Id
+    @GeneratedValue(generator = "increment")  
+    @GenericGenerator(name="increment", strategy = "increment")
+    private  Long id;
   
   @NotBlank
   @Size(max = 1000) 
