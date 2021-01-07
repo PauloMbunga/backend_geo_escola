@@ -84,6 +84,15 @@ public class ProvinciaController{
     // }
 
 
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public Provincia adicionar(@Valid @RequestBody Provincia provincia) {
+        
+        
+        return cadastroProvinciaService.salvar(provincia);
+    }
+
+
 
 
     private ProvinciaModel toModel(Provincia provincia){
